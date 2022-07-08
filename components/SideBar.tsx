@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, SVGProps } from "react";
 import {
   BellIcon,
   HashtagIcon,
@@ -8,9 +8,38 @@ import {
   UserIcon,
   HomeIcon,
   BookmarkIcon,
+  LightningBoltIcon,
 } from "@heroicons/react/outline";
 import SideBarRow from "./SideBarRow";
+import { useTheme } from "next-themes";
+import { SunIcon, MoonIcon } from "@heroicons/react/solid";
+
 function SideBar() {
+  // const [mode, setMode] = useState<boolean>(false);
+
+  // const renderThemeChanger = () => {
+  //   const currentTheme = theme === "system" ? systemTheme : theme;
+
+  //   if (currentTheme === "dark") {
+  //     return (
+  //       <SunIcon
+  //         className="col-span-2 flex flex-col items-center px-4 md:items-start text-yellow-500 w-20 h-10  "
+  //         role="button"
+  //         onClick={() => setTheme("light")}
+  //       />
+  //     );
+  //   } else {
+  //     return (
+  //       <MoonIcon
+  //         className="col-span-2 flex flex-col items-center px-4 md:items-start text-gray-900 w-20 h-10"
+  //         role="button"
+  //         onClick={() => setTheme("dark")}
+  //       />
+  //     );
+  //   }
+  // };
+
+  const { systemTheme, theme, setTheme } = useTheme();
   return (
     <div className="col-span-2 flex flex-col items-center px-4 md:items-start">
       <img
@@ -18,6 +47,8 @@ function SideBar() {
         src="https://links.papareact.com/drq"
         alt=""
       />
+      {/* {renderThemeChanger()} */}
+
       <SideBarRow Icon={HomeIcon} title="Home" />
       <SideBarRow Icon={HashtagIcon} title="Explore" />
       <SideBarRow Icon={BellIcon} title="Notification" />

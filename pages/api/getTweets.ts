@@ -9,6 +9,7 @@ const feedQuery = groq`
   _id,
   ...
 } | order(_createdAt desc)`;
+
 type Data = {
   tweets: Tweet[];
 };
