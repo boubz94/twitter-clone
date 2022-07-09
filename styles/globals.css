@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
+
+@layer components {
+  .but {
+    @apply flex cursor-pointer items-center space-x-3 text-gray-400;
+  }
+  .twBoxButton {
+    @apply h-5 w-5 cursor-pointer transition-transform duration-150 ease-out hover:scale-150;
+  }
+}

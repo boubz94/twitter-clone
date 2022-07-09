@@ -29,11 +29,11 @@ function TweetBox() {
           />
           <div className="flex items-center ">
             <div className="flex flex-1 space-x-2 text-twitter">
-              <PhotographIcon className="h-5 w-5 cursor-pointer transition-transform durantion-150 ease-out hover:scale-150" />
-              <SearchCircleIcon className="h-5 w-5  cursor-pointer transition-transform durantion-150 ease-out hover:scale-150" />
-              <EmojiHappyIcon className="h-5 w-5 cursor-pointer transition-transform durantion-150 ease-out hover:scale-150" />
-              <CalendarIcon className="h-5 w-5 cursor-pointer transition-transform durantion-150 ease-out hover:scale-150" />
-              <LocationMarkerIcon className="h-5 w-5 cursor-pointer transition-transform durantion-150 ease-out hover:scale-150" />
+              <PhotographIcon className="twBoxButton" />
+              <SearchCircleIcon className="twBoxButton" />
+              <EmojiHappyIcon className="twBoxButton" />
+              <CalendarIcon className="twBoxButton" />
+              <LocationMarkerIcon className="twBoxButton" />
             </div>
             <button
               disabled={!input}
