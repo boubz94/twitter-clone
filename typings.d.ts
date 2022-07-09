@@ -14,13 +14,6 @@ export type TweetBody = {
   image: string;
 };
 
-export type Commentbody = {
-  comment: string;
-  tweetId: string;
-  username: string;
-  profileImg: string;
-};
-
 export interface Comment extends CommentBody {
   _id: string;
   _createdAt: string;
@@ -32,3 +25,9 @@ export interface Comment extends CommentBody {
     _type: "reference";
   };
 }
+export type CommentBody = {
+  comment: string;
+  tweetId: string;
+  username: string;
+  profileImg: string;
+};
