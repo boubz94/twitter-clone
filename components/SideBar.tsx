@@ -13,8 +13,10 @@ import {
 import SideBarRow from "./SideBarRow";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "@heroicons/react/solid";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function SideBar() {
+  const { data: session } = useSession();
   // const [mode, setMode] = useState<boolean>(false);
 
   // const renderThemeChanger = () => {
@@ -39,7 +41,6 @@ function SideBar() {
   //   }
   // };
 
-  const { systemTheme, theme, setTheme } = useTheme();
   return (
     <div className="col-span-2 flex flex-col items-center px-4 md:items-start">
       <img
@@ -55,7 +56,11 @@ function SideBar() {
       <SideBarRow Icon={MailIcon} title="Messages" />
       <SideBarRow Icon={BookmarkIcon} title="Bookmark" />
       <SideBarRow Icon={CollectionIcon} title="Lists" />
-      <SideBarRow Icon={UserIcon} title="Sign in" />
+      <SideBarRow
+        // onClick={session ? signIn() : signOut()}
+        Icon={UserIcon}
+        title={session ? "Sign Out" : "Sign In"}
+      />
 
       <SideBarRow Icon={DotsCircleHorizontalIcon} title="More" />
     </div>
