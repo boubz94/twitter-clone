@@ -1,4 +1,4 @@
-import React, { useState, SVGProps } from "react";
+import React, { useState, SVGProps, useEffect } from "react";
 import {
   BellIcon,
   HashtagIcon,
@@ -8,38 +8,13 @@ import {
   UserIcon,
   HomeIcon,
   BookmarkIcon,
-  LightningBoltIcon,
 } from "@heroicons/react/outline";
 import SideBarRow from "./SideBarRow";
-import { useTheme } from "next-themes";
-import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 function SideBar() {
   const { data: session } = useSession();
-  // const [mode, setMode] = useState<boolean>(false);
-
-  // const renderThemeChanger = () => {
-  //   const currentTheme = theme === "system" ? systemTheme : theme;
-
-  //   if (currentTheme === "dark") {
-  //     return (
-  //       <SunIcon
-  //         className="col-span-2 flex flex-col items-center px-4 md:items-start text-yellow-500 w-20 h-10  "
-  //         role="button"
-  //         onClick={() => setTheme("light")}
-  //       />
-  //     );
-  //   } else {
-  //     return (
-  //       <MoonIcon
-  //         className="col-span-2 flex flex-col items-center px-4 md:items-start text-gray-900 w-20 h-10"
-  //         role="button"
-  //         onClick={() => setTheme("dark")}
-  //       />
-  //     );
-  //   }
-  // };
+  console.log(" session :" + session);
 
   return (
     <div className="col-span-2 flex flex-col items-center px-4 md:items-start">
@@ -49,6 +24,11 @@ function SideBar() {
         alt=""
       />
       {/* {renderThemeChanger()} */}
+      {session ? (
+        <p className="font-bold text-lg">Welcome {session?.user?.name}</p>
+      ) : (
+        <p className="font-bold text-lg">Welcome to the Twitter Clone</p>
+      )}
 
       <SideBarRow Icon={HomeIcon} title="Home" />
       <SideBarRow Icon={HashtagIcon} title="Explore" />
@@ -57,11 +37,10 @@ function SideBar() {
       <SideBarRow Icon={BookmarkIcon} title="Bookmark" />
       <SideBarRow Icon={CollectionIcon} title="Lists" />
       <SideBarRow
-        // onClick={session ? signIn() : signOut()}
         Icon={UserIcon}
+        onClick={session ? signOut : signIn}
         title={session ? "Sign Out" : "Sign In"}
       />
-
       <SideBarRow Icon={DotsCircleHorizontalIcon} title="More" />
     </div>
   );

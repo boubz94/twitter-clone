@@ -24,7 +24,7 @@ function Tweet({ tweet }: Props) {
   useEffect(() => {
     refreshComment();
   }, []);
-  // console.log(comments);
+  console.log(comments);
 
   return (
     <div className="flex flex-col space-x-3 border-y p-5 border-gray-100">
