@@ -34,11 +34,12 @@ export default async function handler(
       "Content-type": "application/json",
       Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
     },
-    body: JSON.stringify({ mutations }),
+    body: JSON.stringify(mutations),
     method: "POST",
   });
 
   const json = await result.json();
+  // console.log("okk" + result.json);
 
   res.status(200).json({ message: "Done" });
 }

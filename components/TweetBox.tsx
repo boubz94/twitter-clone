@@ -63,7 +63,11 @@ function TweetBox({ setTweets }: Props) {
 
     const json = await result.json();
 
+    console.log("HERE tweetInfo" + JSON.stringify(tweetInfo));
+
     const newTweets = await fetchTweets();
+    // console.log("newTweets" + JSON.stringify(newTweets));
+
     setTweets(newTweets);
 
     toast("Tweet posted !", {
@@ -71,6 +75,7 @@ function TweetBox({ setTweets }: Props) {
     });
     return json;
   };
+
   const handleSubmit = (
     e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
