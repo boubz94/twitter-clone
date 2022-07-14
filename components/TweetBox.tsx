@@ -34,7 +34,7 @@ function TweetBox({ setTweets }: Props) {
    * @returns the value of the imageInputRef.current.value.
    */
   const addImageToTweet = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
     e.preventDefault;
     if (!imageInputRef.current?.value) return;

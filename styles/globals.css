@@ -10,4 +10,13 @@
   .twBoxButton {
     @apply h-5 w-5 cursor-pointer transition-transform duration-150 ease-out hover:scale-150;
   }
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
